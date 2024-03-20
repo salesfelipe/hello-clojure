@@ -1,6 +1,6 @@
 (ns test.core-test
   (:require [clojure.test :refer :all]
-            [test.core :refer :all]))
+            [exercises.core :refer :all]))
 
 (deftest zero
   (is (= 0 (tamanho-medio-nomes []))))
