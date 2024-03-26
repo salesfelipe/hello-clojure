@@ -27,11 +27,23 @@
    (/
     (reduce + hand) (count hand))))
 
+(defn- get-even-indexed
+  "Returns the values positioned on an even index"
+  [hand]
+  (keep-indexed #(if (even? %1) %2) hand))
+
+(defn- get-odd-indexed
+  "Returns the values positioned on an odd index"
+  [hand]
+  (keep-indexed #(if (odd? %1) %2) hand))
+
 (defn average-even-odd?
   "Returns true if the average of the cards at even indexes 
    is the same as the average of the cards at odd indexes."
   [hand]
- false)
+  (let [even-items (get-even-indexed hand)
+       odd-items (get-odd-indexed hand)] 
+    (== (card-average even-items) (card-average odd-items))))
 
 (defn maybe-double-last
   "If the last card is a Jack (11), doubles its value
