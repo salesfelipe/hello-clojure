@@ -45,11 +45,18 @@
        odd-items (get-odd-indexed hand)] 
     (== (card-average even-items) (card-average odd-items))))
 
+
+(defn- is-last-jack?
+  "If the last card is a Jack (11)"
+  [hand]
+  (= 11 (nth hand (- (count hand) 1))))
+
 (defn maybe-double-last
   "If the last card is a Jack (11), doubles its value
    before returning the hand."
-  [hand])
-
+  [hand]
+ (let [should-double (is-last-jack? hand)]
+   (if should-double (concat (drop-last hand) [22]) hand)))
 
 (defn- median
   [hand]
