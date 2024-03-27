@@ -11,7 +11,6 @@
 (deftest check-average-even-odd
   (is (= true (average-even-odd? '(1 2 3))))
   (is (= false (average-even-odd? '(1 2 3 4)))))
-
     
 (deftest check-maybe-double-last
   (is (= '(1 2 3) (maybe-double-last '(1 2 3))))
