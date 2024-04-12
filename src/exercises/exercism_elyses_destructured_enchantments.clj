@@ -30,4 +30,8 @@
 
 (defn insert-face-cards
   "Returns the deck with face cards between its head and tail."
-  [deck])
+  [deck]
+  (let [[first & remaining] deck] 
+    (if (nil? first)
+      face-cards
+      (concat [first] face-cards remaining))))
