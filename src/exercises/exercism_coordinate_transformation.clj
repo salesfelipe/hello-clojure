@@ -15,10 +15,14 @@
 (defn compose-transform
   "Create a composition function that returns a function that 
    combines two functions to perform a repeatable transformation."
-  [f g])
+  [f1 f2]
+  (fn [a1 a2] 
+    (let [result (f1 a1 a2)] 
+      (f2 (first result) (second result)))))
 
 (defn memoize-transform
   "Returns a function that memoizes the last result.
    If the arguments are the same as the last call,
    the memoized result is returned."
-  [f])
+  [f]
+  )
